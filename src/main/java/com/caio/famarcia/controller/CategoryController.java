@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,6 +40,12 @@ public class CategoryController {
 	@GetMapping(value = "/description/{description}")
 	public ResponseEntity<CategoryModel> findByDescricaoCategoria(@PathVariable String description){
 		ResponseEntity<CategoryModel> obj = service.findByDescricaoCategoria(description);
+		return obj;
+	}
+	
+	@PostMapping
+	public ResponseEntity<CategoryModel> postCategoria(@RequestBody CategoryModel category){
+		ResponseEntity<CategoryModel> obj = service.postCategory(category);
 		return obj;
 	}
 }

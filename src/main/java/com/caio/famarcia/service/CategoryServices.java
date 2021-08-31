@@ -28,4 +28,8 @@ public class CategoryServices {
 	public ResponseEntity<CategoryModel> findByDescricaoCategoria(String description) {
 		return ResponseEntity.ok(repository.findByDescription(description));
 	}
+	
+	public ResponseEntity<CategoryModel> postCategory(CategoryModel category) {
+		return ResponseEntity.ok(repository.save(category));
+	}
 }
