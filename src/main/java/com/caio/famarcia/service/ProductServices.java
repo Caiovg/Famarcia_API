@@ -23,4 +23,8 @@ public class ProductServices {
 		return repository.findById((int) id).map(
 				resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
+	
+	public ResponseEntity<ProductModel> findByDescriptionTitle(String title) {
+		return ResponseEntity.ok(repository.findByName(title));
+	}
 }

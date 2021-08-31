@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.caio.famarcia.model.ProductModel;
 import com.caio.famarcia.service.ProductServices;
+import com.caio.games.model.Produto;
 
 @CrossOrigin("*")
 @RestController
@@ -30,6 +31,12 @@ public class ProductController {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ProductModel> findByIDProduct(@PathVariable Integer id){
 		ResponseEntity<ProductModel> obj = service.findByIDProduct(id);
+		return obj;
+	}
+	
+	@GetMapping(value = "/title/{title}")
+	public ResponseEntity<ProductModel> findByDescriptionTitle(@PathVariable String title){
+		ResponseEntity<ProductModel> obj = service.findByDescriptionTitle(title);
 		return obj;
 	}
 }
