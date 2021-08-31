@@ -31,4 +31,12 @@ public class ProductServices {
 	public ResponseEntity<ProductModel> postProduct(ProductModel product) {
 		return ResponseEntity.ok(repository.save(product));
 	}
+	
+	public ResponseEntity<ProductModel> putProduct(ProductModel product) {
+		return ResponseEntity.ok(repository.save(product));
+	}
+	
+	public void deleteProduct(Integer id) {
+		repository.deleteById(id);
+	}
 }

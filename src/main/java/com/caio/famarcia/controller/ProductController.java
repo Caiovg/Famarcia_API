@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,8 +44,19 @@ public class ProductController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ProductModel> postProduto(@RequestBody ProductModel product){
+	public ResponseEntity<ProductModel> postProduct(@RequestBody ProductModel product){
 		ResponseEntity<ProductModel> obj = service.postProduct(product);
 		return obj;
+	}
+	
+	@PutMapping
+	public ResponseEntity<ProductModel> putProduct(@RequestBody ProductModel product){
+		ResponseEntity<ProductModel> obj = service.putProduct(product);
+		return obj;
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteProduct(@PathVariable Integer id) {
+		service.deleteProduct(id);
 	}
 }
