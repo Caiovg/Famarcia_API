@@ -36,4 +36,8 @@ public class CategoryServices {
 	public ResponseEntity<CategoryModel> putCategory(CategoryModel category) {
 		return ResponseEntity.ok(repository.save(category));
 	}
+	
+	public void deleteCategory(Integer id) {
+		repository.deleteById(id);
+	}
 }
