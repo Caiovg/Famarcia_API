@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,11 @@ public class CategoryController {
 	public ResponseEntity<List<CategoryModel>> findAllCategory(){
 		List<CategoryModel> obj = service.findAllCategory();
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<CategoryModel> findByIDCategoria(@PathVariable Integer id){
+		ResponseEntity<CategoryModel> obj = service.findByIDCategory(id);
+		return obj;
 	}
 }
