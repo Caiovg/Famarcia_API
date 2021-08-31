@@ -27,4 +27,8 @@ public class ProductServices {
 	public ResponseEntity<ProductModel> findByDescriptionTitle(String title) {
 		return ResponseEntity.ok(repository.findByName(title));
 	}
+	
+	public ResponseEntity<ProductModel> postProduct(ProductModel product) {
+		return ResponseEntity.ok(repository.save(product));
+	}
 }

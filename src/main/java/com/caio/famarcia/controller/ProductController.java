@@ -7,12 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.caio.famarcia.model.ProductModel;
 import com.caio.famarcia.service.ProductServices;
-import com.caio.games.model.Produto;
 
 @CrossOrigin("*")
 @RestController
@@ -37,6 +38,12 @@ public class ProductController {
 	@GetMapping(value = "/title/{title}")
 	public ResponseEntity<ProductModel> findByDescriptionTitle(@PathVariable String title){
 		ResponseEntity<ProductModel> obj = service.findByDescriptionTitle(title);
+		return obj;
+	}
+	
+	@PostMapping
+	public ResponseEntity<ProductModel> postProduto(@RequestBody ProductModel product){
+		ResponseEntity<ProductModel> obj = service.postProduct(product);
 		return obj;
 	}
 }
