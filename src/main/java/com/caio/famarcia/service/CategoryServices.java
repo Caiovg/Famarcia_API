@@ -32,4 +32,8 @@ public class CategoryServices {
 	public ResponseEntity<CategoryModel> postCategory(CategoryModel category) {
 		return ResponseEntity.ok(repository.save(category));
 	}
+	
+	public ResponseEntity<CategoryModel> putCategory(CategoryModel category) {
+		return ResponseEntity.ok(repository.save(category));
+	}
 }
