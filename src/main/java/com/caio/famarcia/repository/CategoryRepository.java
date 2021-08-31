@@ -8,6 +8,6 @@ import com.caio.famarcia.model.CategoryModel;
 
 public interface CategoryRepository extends JpaRepository<CategoryModel, Integer>{
 
-	@Query("SELECT obj FROM Categoria obj WHERE UPPER(obj.description) LIKE CONCAT('%',UPPER(:description),'%')")
+	@Query("SELECT obj FROM CategoryModel obj WHERE UPPER(obj.description) LIKE CONCAT('%',UPPER(:description),'%')")
 	CategoryModel findByDescription(@Param("description") String description);
 }

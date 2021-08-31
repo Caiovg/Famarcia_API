@@ -25,7 +25,7 @@ public class CategoryServices {
 				resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 	
-	public ResponseEntity<CategoryModel> findByDescricaoCategoria(String description) {
+	public ResponseEntity<CategoryModel> findByDescriptionCategory(String description) {
 		return ResponseEntity.ok(repository.findByDescription(description));
 	}
 	
