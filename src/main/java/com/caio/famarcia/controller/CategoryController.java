@@ -34,4 +34,10 @@ public class CategoryController {
 		ResponseEntity<CategoryModel> obj = service.findByIDCategory(id);
 		return obj;
 	}
+	
+	@GetMapping(value = "/description/{description}")
+	public ResponseEntity<CategoryModel> findByDescricaoCategoria(@PathVariable String description){
+		ResponseEntity<CategoryModel> obj = service.findByDescricaoCategoria(description);
+		return obj;
+	}
 }

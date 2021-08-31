@@ -24,4 +24,8 @@ public class CategoryServices {
 		return repository.findById((int) id).map(
 				resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
+	
+	public ResponseEntity<CategoryModel> findByDescricaoCategoria(String description) {
+		return ResponseEntity.ok(repository.findByDescription(description));
+	}
 }
